@@ -1,0 +1,78 @@
+// criando banco de dados
+
+CREATE DATABASE Empresa;
+
+// criando tabelas
+CREATE TABLE Empregados (
+  id_emp INT PRIMARY KEY IDENTITY (1,1),
+  nome_emp VARCHAR (200) NOT NULL,
+  endereco VARCHAR (200) NOT NULL,
+  idade INT NOT NULL,
+)
+
+CREATE TABLE Gargos (
+  id_cargo INT PRIMARY KEY IDENTITY (1,1),
+  nome_cargo VARCHAR(200) NOT NULL,
+)
+// alterar nome da tabelas
+sp_rename 'Gargos', 'Cargos';
+
+CREATE TABLE Gestores (
+  id_gestor INT PRIMARY KEY IDENTITY  (1,1),
+  nome_gestor VARCHAR(200) NOT NULL,
+)
+
+// Populando tabelas
+
+INSERT INTO Empregados VALUES ('Bruna', 'Rua Santo Amaro 10', '30')
+INSERT INTO Empregados VALUES ('Maria', 'Rua Santo Antonio 7', '40')
+INSERT INTO Empregados VALUES ('Jose', 'Rua Silveira 10', '32')
+INSERT INTO Empregados VALUES ('Julia', 'Rua Afonso Pena 40', '26')
+INSERT INTO Empregados VALUES ('Junior', 'Rua Matheus Silva 10', '22')
+INSERT INTO Empregados VALUES ('Marlon', 'Rua Vaco da Gama 5', '19')
+INSERT INTO Empregados VALUES ('Ana', 'Rua Costa e Silva 11', '25')
+INSERT INTO Empregados VALUES ('Leticia', 'Rua Ameria Sampaio 8', '29')
+INSERT INTO Empregados VALUES ('Samuel', 'Rua Santo Inacio 49', '35')
+INSERT INTO Empregados VALUES ('Joao', 'Rua Santa efigenia 27', '39')
+
+
+INSERT INTO Gestores VALUES ('Camila')
+INSERT INTO Gestores VALUES ('Juliana')
+INSERT INTO Gestores VALUES ('Fernando')
+INSERT INTO Gestores VALUES ('Fernanda')
+INSERT INTO Gestores VALUES ('Carla')
+INSERT INTO Gestores VALUES ('Thayna')
+INSERT INTO Gestores VALUES ('Andressa')
+INSERT INTO Gestores VALUES ('Taiane')
+INSERT INTO Gestores VALUES ('Rita')
+
+INSERT INTO Cargos VALUES ('Engenheiro')
+INSERT INTO Cargos VALUES ('Assistente administrativo')
+INSERT INTO Cargos VALUES ('Gestor de RH')
+INSERT INTO Cargos VALUES ('UX Design')
+INSERT INTO Cargos VALUES ('Professor')
+INSERT INTO Cargos VALUES ('Design')
+INSERT INTO Cargos VALUES ('Tech lider')
+INSERT INTO Cargos VALUES ('Arquiteto')
+INSERT INTO Cargos VALUES ('Lider de RH')
+
+// adicionando nova columa 
+
+ALTER TABLE Empregados ADD setor VARCHAR (50)
+
+ALTER TABLE Empregados ADD cor_favorita VARCHAR (30)
+
+// removendo colunas 
+alter table Empregados DROP COLUMN cor_favorita; 
+
+// criando tabelas
+
+CREATE TABLE Carro
+(
+    id_carro INT PRIMARY KEY IDENTITY(1,1),
+    marca VARCHAR(70) NOT NULL,
+    modelo VARCHAR(70) NOT NULL,
+    data_fabricacao DATETIME NOT NULL,
+    placa int NOT NULL,
+    cor VARCHAR(30) NOT NULL,
+)
